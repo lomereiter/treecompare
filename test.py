@@ -395,6 +395,12 @@ you are logged  \tin as< bobo>
     \t\tyou are logged   in as <bobo>.  
                 """
             )
+
+    def test_approximate_float_comparison(self):
+        self.assertNotDifferent(
+                expected = [0.5, 0.3000000001, 0.8],
+                actual = [0.499999999, 0.299999998, 0.799999999]
+            )
     
         
 if __name__ == '__main__':

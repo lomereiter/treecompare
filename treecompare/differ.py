@@ -27,6 +27,7 @@ def make_differ(*implementations):
     return Differ(
                     impl.DiffPrimitives,
                     impl.DiffNumbers,
+                    impl.DiffFloatNumbers,
                     impl.DiffText,
                     impl.DiffLists,
                     impl.DiffDicts,

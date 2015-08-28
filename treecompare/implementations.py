@@ -96,8 +96,14 @@ class DiffPrimitives(ImplementationBase):
             return self.different("expected %r, got %r" % (expected, actual))
 
 class DiffNumbers(DiffPrimitives):
-    diffs_types = (int, long, float)
-    
+    diffs_types = (int, long)
+
+class DiffFloatNumbers(ImplementationBase):
+    diffs_types = (float, )
+
+    def diff(self, expected, actual):
+        if abs(expected - actual) > 1e-6:
+            return self.different("expected %r, got %r" % (expected, actual))
 
 class DiffText(DiffPrimitives):
     NDIFF_THRESHOLD = 32
